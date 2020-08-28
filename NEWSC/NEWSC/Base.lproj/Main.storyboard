@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder.AppleTV.Storyboard" version="3.0" toolsVersion="16097.2" targetRuntime="AppleTV" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="QgY-ah-sD5">
+<document type="com.apple.InterfaceBuilder.AppleTV.Storyboard" version="3.0" toolsVersion="16097.2" targetRuntime="AppleTV" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="AOr-A1-Kfx">
     <device id="appleTV" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
@@ -7,10 +7,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Item-->
         <scene sceneID="zUi-cs-hxu">
             <objects>
-                <collectionViewController id="QgY-ah-sD5" customClass="ViewController" customModule="NEWSC" customModuleProvider="target" sceneMemberID="viewController">
+                <collectionViewController storyboardIdentifier="News" id="QgY-ah-sD5" customClass="NEWSCCollectionViewController" customModule="NEWSC" customModuleProvider="target" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="wj5-bs-Wki">
                         <rect key="frame" x="0.0" y="0.0" width="1920" height="1080"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -21,26 +21,41 @@
                             <inset key="sectionInset" minX="80" minY="80" maxX="80" maxY="80"/>
                         </collectionViewFlowLayout>
                         <cells>
-                            <collectionViewCell opaque="NO" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Cell" id="wfA-SI-ai9">
+                            <collectionViewCell opaque="NO" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Cell" id="wfA-SI-ai9" customClass="NewsCollectionViewCell" customModule="NEWSC" customModuleProvider="target">
                                 <rect key="frame" x="80" y="80" width="375" height="375"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="a97-BH-dkj">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="375"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="loading" translatesAutoresizingMaskIntoConstraints="NO" id="EZs-Yo-D02">
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="loading" adjustsImageWhenAncestorFocused="YES" translatesAutoresizingMaskIntoConstraints="NO" id="EZs-Yo-D02">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="210"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="210" id="klL-7I-nLR"/>
+                                            </constraints>
                                         </imageView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="This is a long news story title with lots of text inside" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2ae-Bf-8X9">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This is a long news story title with lots of text inside" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2ae-Bf-8X9">
                                             <rect key="frame" x="0.0" y="225" width="375" height="138"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="trailing" secondItem="2ae-Bf-8X9" secondAttribute="trailing" id="1bF-79-okX"/>
+                                        <constraint firstItem="2ae-Bf-8X9" firstAttribute="top" secondItem="EZs-Yo-D02" secondAttribute="bottom" constant="15" id="89q-mj-OKc"/>
+                                        <constraint firstAttribute="trailing" secondItem="EZs-Yo-D02" secondAttribute="trailing" id="JD4-c8-jpw"/>
+                                        <constraint firstItem="EZs-Yo-D02" firstAttribute="leading" secondItem="a97-BH-dkj" secondAttribute="leading" id="V7v-Q9-uJS"/>
+                                        <constraint firstItem="2ae-Bf-8X9" firstAttribute="leading" secondItem="a97-BH-dkj" secondAttribute="leading" id="gG5-5r-jhT"/>
+                                        <constraint firstItem="EZs-Yo-D02" firstAttribute="top" secondItem="a97-BH-dkj" secondAttribute="top" id="q0u-R8-hgr"/>
+                                    </constraints>
                                 </collectionViewCellContentView>
+                                <size key="customSize" width="375" height="375"/>
+                                <connections>
+                                    <outlet property="imageView" destination="EZs-Yo-D02" id="RRZ-t9-oRl"/>
+                                    <outlet property="textLabel" destination="2ae-Bf-8X9" id="z0s-7v-BLg"/>
+                                    <outlet property="unfocusedConstraint" destination="89q-mj-OKc" id="jyJ-C1-nAQ"/>
+                                </connections>
                             </collectionViewCell>
                         </cells>
                         <connections>
@@ -48,11 +63,26 @@
                             <outlet property="delegate" destination="QgY-ah-sD5" id="fi9-Hh-J88"/>
                         </connections>
                     </collectionView>
+                    <tabBarItem key="tabBarItem" title="Item" id="aW2-8Q-mX1"/>
                     <connections>
                         <outlet property="tabBarObservedScrollView" destination="wj5-bs-Wki" id="Tjn-8X-w4W"/>
                     </connections>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Gv4-cK-MeW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2324" y="129"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="mPM-gI-und">
+            <objects>
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="AOr-A1-Kfx" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Yq4-vT-eWv">
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="HuR-fS-WZd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="192" y="129"/>
         </scene>
