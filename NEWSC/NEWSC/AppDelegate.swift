@@ -13,9 +13,33 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
+    let categories = ["Business", "Culture", "Sport", "Tech", "Travel"]
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+        // 1. Grab the root view controller and safely typecast to be a tab bar controller
+        if let tabBarController = window?.rootViewController as? UITabBarController {
+            
+            // 2. Create an empty view controller array ready to hold the view controllers for our app
+            var viewControllers = [UIViewController]()
+            
+            // 3. Loop over all the categories
+            for category in categories {
+                
+                // 4. Create a new view controller for this category
+                if let newsController = tabBarController.storyboard?.instantiateViewController(withIdentifier: "News") as? NEWSCCollectionViewController {
+                    
+                    // 5. Give it the title of this category
+                    newsController.title = category
+                    
+                    // 6. Append it to our array of view controllers
+                    viewControllers.append(newsController)
+                }
+            }
+            // 7. Assign the view controller array to the tab bar controller
+            tabBarController.viewControllers = viewControllers
+        }
         return true
     }
 
