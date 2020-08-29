@@ -11,7 +11,7 @@ import UIKit
 class NewsCollectionViewCell: UICollectionViewCell {
     
     // MARK: - Outlets
-    @IBOutlet var imageView: UIImageView!
+    @IBOutlet var imageView: RemoteImageView!
     @IBOutlet var textLabel: UILabel!
     @IBOutlet var unfocusedConstraint: NSLayoutConstraint!
     

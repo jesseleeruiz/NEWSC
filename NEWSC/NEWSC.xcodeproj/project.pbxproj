@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		8048C13024F885E5006C58AD /* NEWSCCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8048C12F24F885E5006C58AD /* NEWSCCollectionViewController.swift */; };
 		8048C13224F88904006C58AD /* NewsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8048C13124F88904006C58AD /* NewsCollectionViewCell.swift */; };
+		80C7A56B24F9D8AF00563154 /* RemoteImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80C7A56A24F9D8AF00563154 /* RemoteImageView.swift */; };
 		80D988E124F3288600A8C35E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80D988E024F3288600A8C35E /* AppDelegate.swift */; };
 		80D988E624F3288700A8C35E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 80D988E424F3288700A8C35E /* Main.storyboard */; };
 		80D988E824F3288B00A8C35E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 80D988E724F3288B00A8C35E /* Assets.xcassets */; };
@@ -19,6 +20,7 @@
 /* Begin PBXFileReference section */
 		8048C12F24F885E5006C58AD /* NEWSCCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NEWSCCollectionViewController.swift; sourceTree = "<group>"; };
 		8048C13124F88904006C58AD /* NewsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsCollectionViewCell.swift; sourceTree = "<group>"; };
+		80C7A56A24F9D8AF00563154 /* RemoteImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteImageView.swift; sourceTree = "<group>"; };
 		80D988DD24F3288600A8C35E /* NEWSC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NEWSC.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		80D988E024F3288600A8C35E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		80D988E524F3288700A8C35E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -66,6 +68,7 @@
 				80D988F224F3296C00A8C35E /* SwiftyJSON.swift */,
 				8048C12F24F885E5006C58AD /* NEWSCCollectionViewController.swift */,
 				8048C13124F88904006C58AD /* NewsCollectionViewCell.swift */,
+				80C7A56A24F9D8AF00563154 /* RemoteImageView.swift */,
 			);
 			path = NEWSC;
 			sourceTree = "<group>";
@@ -144,6 +147,7 @@
 				80D988F324F3296C00A8C35E /* SwiftyJSON.swift in Sources */,
 				80D988E124F3288600A8C35E /* AppDelegate.swift in Sources */,
 				8048C13024F885E5006C58AD /* NEWSCCollectionViewController.swift in Sources */,
+				80C7A56B24F9D8AF00563154 /* RemoteImageView.swift in Sources */,
 				8048C13224F88904006C58AD /* NewsCollectionViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

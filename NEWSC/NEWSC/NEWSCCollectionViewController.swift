@@ -9,16 +9,20 @@
 import UIKit
 
 class NEWSCCollectionViewController: UICollectionViewController {
+    
+    // MARK: - Properties
+    let apiKey = "e2907074-4e5b-44c2-9916-6c2ad24e67e9"
+    var articles = [JSON]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Register cell classes
-
-        // Do any additional setup after loading the view.
+        
+        guard let title = title,
+            let url = URL(string: "https://content.guardianapis.com/\(title.lowercased())?api-key=\(apiKey)&show-fields=thumbnail,headline,standfirst,body") else { return }
+        
+        DispatchQueue.global(qos: .userInteractive).async {
+            self.fetch(url)
+        }
     }
 
     /*
@@ -34,15 +38,23 @@ class NEWSCCollectionViewController: UICollectionViewController {
     // MARK: UICollectionViewDataSource
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of items
-        return 12
+        return articles.count
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath)
+        guard let newsCell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as? NewsCollectionViewCell else { fatalError("Couldn't dequeue a cell") }
     
+        let newsItem = articles[indexPath.row]
+        let title = newsItem["fields"]["headline"].stringValue
+        let thumbnail = newsItem["fields"]["thumbnail"].stringValue
         
+        if let imageURL = URL(string: thumbnail) {
+            newsCell.imageView.load(imageURL)
+        }
+        
+        newsCell.textLabel.text = title
     
-        return cell
+        return newsCell
     }
 
     // MARK: UICollectionViewDelegate
@@ -75,5 +87,28 @@ class NEWSCCollectionViewController: UICollectionViewController {
     
     }
     */
+    
+    // MARK: - Methods
+    func fetch(_ url: URL) {
+        // Attempt to download the contents of this URL
+        if let data = try? Data(contentsOf: url) {
+            
+            // Convert that to JSON and pull out the array we care about
+            articles = JSON(data)["response"]["results"].arrayValue
+            
+            // Reload the collection view on the main thread
+            DispatchQueue.main.async {
+                self.collectionView.reloadData()
+            }
+        } else {
+            let alert = UIAlertController(title: "Something went wrong", message: "Something went wrong. Please try again later.", preferredStyle: .alert)
+            let alertAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+            alert.addAction(alertAction)
+            
+            DispatchQueue.main.async {
+                self.present(alert, animated: true)
+            }
+        }
+    }
 
 }
