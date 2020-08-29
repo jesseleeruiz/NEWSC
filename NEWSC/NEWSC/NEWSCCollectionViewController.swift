@@ -56,6 +56,12 @@ class NEWSCCollectionViewController: UICollectionViewController {
     
         return newsCell
     }
+    
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        guard let reader = storyboard?.instantiateViewController(identifier: "Reader") as? ReaderViewController else { return }
+        reader.article = articles[indexPath.row]
+        present(reader, animated: true)
+    }
 
     // MARK: UICollectionViewDelegate
 
