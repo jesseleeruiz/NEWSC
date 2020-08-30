@@ -37,6 +37,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                     viewControllers.append(newsController)
                 }
             }
+            
+            viewControllers.append(createSearch(storyboard: tabBarController.storyboard))
+            
             // 7. Assign the view controller array to the tab bar controller
             tabBarController.viewControllers = viewControllers
         }
@@ -60,6 +63,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
     }
 
-
+    func createSearch(storyboard: UIStoryboard?) -> UIViewController {
+        guard let newsController = storyboard?.instantiateViewController(identifier: "News") as? NEWSCCollectionViewController else { fatalError("Unable to instantiate a NewsController.")}
+        
+        let searchController = UISearchController(searchResultsController: newsController)
+        searchController.searchResultsUpdater = newsController
+        
+        let searchContainer = UISearchContainerViewController(searchController: searchController)
+        searchController.title = "Search"
+        
+        return searchContainer
+    }
 }
-
