@@ -9,7 +9,7 @@ UIKit | tvOS | Dispatch | REST API |
 
 ___
 ## Background 😃
-I have a great love for movies and tv shows. On my free time you will find me re-watching my favorite tv series or movies, or binge watching a new and awesome tv show. Naturally, I would gravitate toward tvOS development and here it is you find me indeed. I started going through [Paul Hudson's _Hacking with tvOS_](https://www.hackingwithswift.com/store/hacking-with-tvos) and have been learning so much! Here is some of the fruit from his deep dive.
+I have a great love for movies and tv shows. On my free time you will find me re-watching my favorite tv series or movies, or binge watching a new and awesome tv show. Naturally, I would gravitate toward tvOS development and here it is you find me indeed. I started going through [Paul Hudson's _Hacking with tvOS_](https://www.hackingwithswift.com/store/hacking-with-tvos) and have been learning so much! Here is some of the fruit from this deep dive.
 
 ___
 ## Feedback 🤝
